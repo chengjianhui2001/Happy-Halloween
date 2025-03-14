@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./3d.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="moon">
+        <img src="images/moon.png">
+    </div>
+
+    <div class="scene">
+
+        <div class="object ground">
+            <img class="face front" src="images/ground-front.png" >
+            <img class="face left" src="images/ground-left-right.png" > 
+            <img class="face right" src="images/ground-left-right.png" >
+            <img class="face top" src="images/ground-top.png" >
+            <img class="face back" src="images/ground-back.png" >
+        </div>
+
+        <div class="object tree-light">
+            <img class="face tree" src="images/tree.png" >
+            <img class="face light1" src="images/light1.png" >
+            <img class="face light2" src="images/light2.png" >
+            <img class="face light3" src="images/light3.png" >
+            <img class="face candy2" src="images/candy2.png">
+            <img class="face candy3" src="images/candy3.png">
+            <img class="face candy4" src="images/candy4.png">
+        </div>
+
+
+        <div class="object house">
+            <div class="object house-body">
+                <img class="face body-front" src="images/housebody-front.png" >               
+                <img class="face body-front-right" src="images/housebody-right.png" >
+                <img class="face body-front-left" src="images/housebody-left.png" >
+                <img class="face body-back-right" src="images/housebody-back-right-left.png" >
+                <img class="face body-back-left" src="images/housebody-back-right-left.png" >
+                <img class="face body-back" src="images/housebody-back-right-left.png" >
+                <img class="face front-windowlight" src="images/windowlight-front.png" >
+                <img class="face left-windowlight" src="images/windowlight-left-right.png" >
+                <img class="face right-windowlight" src="images/windowlight-left-right.png" >
+            </div>
+ 
+            <div class="object candy">
+                <img class="face candy1" src="images/candy1.png">
+            </div>
+
+            <div class="object door">
+                <img src="images/door.png" alt="" class="face">
+            </div>
+
+            <div class="object house-head">
+                <img class="face head-front" src="images/househead.png" >
+                <img class="face head-front-right" src="images/househead.png" >
+                <img class="face head-front-left" src="images/househead.png" >
+                <img class="face head-back-right" src="images/househead.png" >
+                <img class="face head-back-left" src="images/househead.png" >
+                <img class="face head-back" src="images/househead.png" >
+                <img class="face head-top" src="images/househead-top.png" >
+                <img class="face vine" src="images/vine.png" >
+            </div>
+
+            <div class="object handhail">
+                <img class="face righthail" src="images/handhail.png" >
+                <img class="face lefthail" src="images/handhail.png" >
+            </div>
+        </div>
+
+
+        <div class=" object candybox">
+            <div class="object candybox-body">
+                <img class="face front" src="images/batbox-front.png" >
+                <img class="face left" src="images/batbox-left-right-back.png" >
+                <img class="face right" src="images/batbox-left-right-back.png" >
+                <img class="face back" src="images/batbox-left-right-back.png" >
+                <img class="face leftwing" src="images/wing.png" >
+                <img class="face rightwing" src="images/wing.png" >
+            </div>
+    
+            <div class="object candybox-head">
+                <img class="face front" src="images/cover-front.png" >
+                <img class="face left" src="images/cover-left-right-back.png" >
+                <img class="face right" src="images/cover-left-right-back.png" >
+                <img class="face back" src="images/cover-left-right-back.png" >
+                <img class="face top" src="images/cover-top.png" >
+            </div>
+        </div>
+
+        <img class="face candy5" src="images/candy5.png" >
+
+
+        <div class="object witch">
+            <img class="face witchbody" src="images/witch.png" >
+        </div>
+
+
+        <div class="object tombstone">
+            <img class="face tombstone1" src="images/tombstone.png" >
+            <img class="face tombstone2" src="images/tombstone2.png" >
+            <img class="face goast1" src="images/ghost.png" >
+            <img class="face goast2" src="images/ghost.png" >
+        </div>
+  
+    </div>
+
+    <div class="score">
+        <div class="scoretop">Find Candies:</div>
+        <div class="scorebottom"><P id="count">0</P><p>/5</p></span></div>
+    </div>
+
+    <div class="change button-sun"></div>
+
+    <div class="pause music-close">
+        <audio id="bcmusic" src="audios/halloween.mp3" loop="loop"></audio>
+    </div>
+
+    <div class="music">
+    </div>
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/3d.js"></script>
+</body>
+</html>

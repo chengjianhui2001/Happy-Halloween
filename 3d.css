@@ -1,0 +1,586 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(176, 137, 189, 0.726), rgba(216, 168, 79, 0.74));
+    perspective: 1000px;
+}
+
+.scene, .object, .face {
+    --rX: 0deg; --rY: 0deg; --rZ: 0deg;
+    --tX: 0px; --tY: 0px; --tZ: 0px;
+    transform: rotateX(var(--rX)) rotateY(var(--rY)) rotateZ(var(--rZ)) 
+               translate3d(var(--tX),var(--tY),var(--tZ));
+}
+
+.object {
+    position: absolute;
+}
+
+.face {
+    position: absolute;
+}
+
+.scene, .object {
+    user-select: none;
+    transform-style: preserve-3d;
+}
+
+.scene{
+    --rX: -15deg;
+    transform: rotateX(var(--rX)) rotateY(var(--rY)) rotateZ(var(--rZ)) 
+               translate3d(var(--tX),var(--tY),var(--tZ));
+}
+
+
+/* ground */
+.front{
+    width: 600px;
+    height: 50px;
+}
+
+.top {
+    width: 600px;
+    height: 600px;
+}
+
+.ground .front  { --rY:0deg; --tX:-300px; --tY:99.5px; --tZ:300px }
+.ground .right   { --rY:-90deg; --tX:0px; --tY:-50.5px; --tZ:0px; }
+.ground .left  { --rY:-90deg; --tX:-0.2px; --tY:-50.5px; --tZ:599.5px; }
+.ground .top  { --rX:90deg; --tX:-300px; --tY: 0px; --tZ:200px; }
+.ground .back{--tX:-300px; --tY: -50.5px; --tZ:-300px;}
+
+
+/* tree-light */
+.tree {
+    width: 300px;
+    height: 400px;
+}
+
+.light1, .light2, .light3 {
+    width: 50px;
+    height: 50px;
+}
+
+.tree-light {
+    transform: translate3d(-424px,1px,-50px);
+}
+
+.tree-light .tree {transform:rotateY(0deg) translate3d(0px,-260.9px,0px);}
+
+.tree-light .light1 {
+    position: absolute;
+    top: -124.4px;
+    left: 29px;
+}
+.tree-light .light2 {
+    position: absolute;
+    top: -171.8px;
+    left: 150px;
+}
+.tree-light .light3 {
+    position: absolute;
+    top: -96.8px;
+    left: 219px;
+}
+
+.light1:hover {
+    cursor: pointer;
+}
+
+.light2:hover {
+    cursor: pointer;
+}
+
+.light3:hover {
+    cursor: pointer;
+}
+
+
+/* pumpkin-house */
+.house {
+    transform: translate3d(-85px,-15px,10px) scale3d(1.7,1.7,1.7);
+}
+
+.body-front, .body-front-right, .body-front-left, .body-back-right, .body-back-left, .body-back {
+    width: 100px;
+    height: 150px;
+}
+
+.house-body .body-front {transform: rotateY(0deg) translate3d(0px,0px,0px);}
+
+.house-body .body-front-right {
+    transform-origin: bottom right;
+    transform: rotateY(-120deg) translate3d(0px,0px,0px);
+}
+
+.house-body .body-front-left {
+    transform-origin: bottom left;
+    transform: rotateY(120deg) translate3d(0px,0px,0px);
+}
+.house-body .body-back-right {
+    transform-origin: left bottom;
+    transform: rotateY(120deg) translate3d(0px,0px,172.4px);
+}
+.house-body .body-back-left {
+    transform-origin: right bottom;
+    transform: rotateY(-120deg) translate3d(0px,0px,172.4px);
+}
+
+.house-body .body-back {
+    transform: rotateY(0deg) translate3d(0px,0px,-172.4px);
+}
+
+.house-body {
+    transform: translate3d(0px,-68px,2px);
+}
+
+.front-windowlight {
+    width: 50px;
+    opacity: 0.5;
+    transform: rotateY(0deg) translate3d(25px,25.5px,0.1px);
+}
+
+.left-windowlight {
+    width: 77px;
+    opacity: 0.5;
+    transform-origin: bottom left;
+    transform: rotateY(120deg) translate3d(-17px,-12px,-0.1px);
+}
+
+.right-windowlight {
+    width: 77px;
+    transform-origin: bottom right;
+    opacity: 0.5;
+    transform: rotateY(-120deg) translate3d(6px,-12px,-20px);   
+}
+
+.head-front,.head-front-right,.head-front-left,.head-back-right,.head-back-left, .head-back {
+    width: 100px;
+    height: 50px;
+}
+
+.head-top{
+    width:100px;
+    height: 100px;
+    transform-origin: center bottom;
+    transform: rotateX(90deg) translate3d(0px,-36.5px,75px);
+}
+
+.head-back{
+    transform-origin: bottom center;
+    transform: translate3d(0px, 0px, -173px) rotateX(-60deg);
+}
+
+.head-front {
+    transform-origin: bottom center;
+    transform: translate3d(0px, 0px, 0px) rotateX(60deg);
+}
+
+.head-front-right {
+    transform-origin: right bottom;
+    transform: translate3d(0px,0px,0px) rotateY(-120deg) rotateX(-60deg);
+}
+
+.head-front-left {
+    transform-origin: left bottom;
+    transform: translate3d(0px,0px,0px) rotateY(120deg) rotateX(-60deg);
+}
+
+.head-back-right {
+    transform-origin: left bottom ;
+    transform: translate3d(150px,0px,-86px) rotateY(120deg) rotateX(60deg);
+}
+
+.head-back-left {
+    transform-origin: right bottom;
+    transform: translate3d(-150px,0px,-87px) rotateY(-120deg) rotateX(60deg);
+}
+
+.house-head {
+    transform: translate3d(0px, -117.5px, 2px);
+}
+
+.door img {
+    width: 75px;
+    height: 40px;
+    transform-origin: bottom;
+    transform: translate3d(13px,8px,2px) ;
+}
+
+.door:hover {
+    cursor: pointer;
+}
+
+.vine {
+    width: 300px;
+    height: 300px;
+    transform: translate3d(-95px,-47px,-87px);
+}
+
+.righthail, .lefthail{
+    width: 100px;
+    height: 100px;
+}
+
+.righthail{
+    transform:rotateY(-90deg) translate3d(42px,-10px,-50px);
+}
+
+.lefthail{
+    transform:rotateY(-90deg) translate3d(42px,-10px,50px);
+}
+
+
+/* candy-box */
+.candybox-body .front,.candybox-body .right,.candybox-body .left,.candybox-body .back{
+    width: 100px;
+    height: 100px;
+}
+
+.candybox-body .front{
+    transform-origin: bottom;
+    transform: translate3d(0px,0px,0px) rotateX(-8.6deg);
+}
+.candybox-body .left {
+    transform-origin: right bottom;
+    transform: translate3d(-85px,0px,15.5px) rotateY(-90deg) rotateX(-8.6deg);
+}
+.candybox-body .right {
+    transform-origin: left bottom;
+    transform: translate3d(85px,0px,15.5px) rotateY(90deg) rotateX(-8.6deg);
+}
+.candybox-body .back {
+    transform-origin: bottom;
+    transform: translate3d(0px,0px,-68.5px) rotateX(8.6deg);
+}
+.candybox-body .leftwing, .candybox-body .rightwing {
+    width: 100px;
+    height: 80px;
+}
+.candybox-body .leftwing {
+    transform-origin: right;
+    transform: translate3d(-90px,0px,-35px) rotateZ(-8.6deg);
+}
+.candybox-body .rightwing {
+    transform-origin: left;
+    transform: translate3d(189px,16px,-35px) rotateY(180deg) rotateZ(-8.6deg);
+}
+
+.candybox-head .front, .candybox-head .left, .candybox-head .right, .candybox-head .back {
+    width: 100px;
+    height: 50px;
+}
+
+.candybox-head .top {
+    width: 100px;
+    height: 100px;
+}
+
+.candybox-head .front {
+    transform: translate3d(0px,0px,0px);
+}
+
+.candybox-head .left {
+    transform-origin: left bottom;
+    transform: translate3d(0px,-3.6px,0px) rotateY(90deg);
+}
+
+.candybox-head .right {
+    transform-origin: right bottom;
+    transform: translate3d(0px,-3.6px,0px) rotateY(-90deg);
+}
+
+.candybox-head .back {
+    transform: translate3d(0px,-3.6px,-100px);
+}
+
+.candybox-head .top {
+    transform-origin:top;
+    transform: translate3d(0px,15.8px,-100px) rotateX(90deg);
+}
+
+.candybox-head{
+    transform: translate3d(0px,-26.8px,15px) ;
+}
+
+
+.candybox {
+    transform: scale3d(0.35,0.35,0.35) translate3d(418px,185px,700px);
+}
+
+.candybox:hover{
+    cursor: pointer;
+}
+
+
+/* witch */
+.witchbody {
+    width: 200px;
+}
+
+.witch{
+    --tX:-290px;
+    --tY:-80px;
+    --tZ:190px;
+    transition: transform 1s ease;
+}
+
+
+/* tumbstone & ghost */
+.tombstone1, .tombstone2 {
+    width: 100px;
+    height: 100px;
+}
+
+.tombstone1 {
+    transform: rotateY(10deg) translate3d(70px,4px,90px);
+}
+
+.tombstone2 {
+    transform:scale3d(0.9,0.9,0.9) rotateY(-10deg) translate3d(228px,12px,90px);
+}
+
+.tombstone1:hover {
+    cursor: pointer;
+}
+
+.tombstone2:hover {
+    cursor: pointer;
+}
+
+.goast1 {
+    width: 70px;
+    height: 70px;
+    transform: translate3d(106px,5px,70px);
+}
+
+.goast2 {
+    width: 70px;
+    height: 70px;
+    transform: translate3d(211px,30px,112px);
+}
+
+
+/* candy */
+.candy1{
+    width: 30px;
+    height: 30px;
+}
+
+.candy2, .candy3, .candy4, .candy5 {
+    width: 40px;
+    height: 40px;
+}
+
+.candy1 {
+    transform: translate3d(35px,20px,-20px);
+}
+
+.candy2 {
+    transform: translate3d(36px,-110px,0px);
+}
+
+.candy3 {
+    transform: translate3d(157px,-156px,0px);
+}
+
+.candy4 {
+    transform: translate3d(226px,-80px,0px);
+}
+
+.candy5 {
+    transform: translate3d(146px,70px,237px);
+}
+
+
+/* score */
+.score {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    background-image: url(images/board.png) ;
+    background-size: 250px 100px;
+    border-radius: 20px;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoretop {
+    font-size: 23px;
+    font-family: 'Irish Grover', cursive;
+    color:rgb(109, 99, 19);
+}
+
+.scorebottom {
+    display: flex;
+    font-size: 25px;
+    font-family: 'Irish Grover', cursive;
+    color:rgb(109, 99, 19);
+}
+
+
+
+/* animation */
+.openDoor {
+    animation:openDoor 6s ease-out;
+}
+
+.outBox {
+    animation:outBox 4s ease-out;
+}
+
+.change {
+    position: absolute;
+    top: 35px;
+    right: 130px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+.change:hover {
+    cursor: pointer;
+}
+
+.button-sun {
+    background-image: url(images/botton-sun.png);
+    background-size: 70px 70px;
+}
+
+.button-moon {
+    background-image: url(images/botton-moon.png);
+    background-size: 70px 70px;
+}
+
+.pause {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+}
+
+.pause:hover {
+    cursor: pointer;
+}
+
+.music-open {
+    background-image: url(images/music-open.png);
+    background-size: 70px 70px;
+}
+
+.music-close {
+    background-image: url(images/music-close.png);
+    background-size: 70px 70px;
+}
+
+.moon {
+    position:absolute;
+    bottom: 250px;
+    z-index: -1;
+    animation: moonAnimation 5s ease 0s infinite normal none;
+}
+
+@keyframes moonAnimation {
+    0.0%{
+        transform-origin: center;
+        transform: scale(1);
+    }
+    100%{
+        transform-origin: center;
+        transform: scale(1);
+    }
+    49.9%{
+        transform-origin: center;
+        transform: scale(1.1);
+    }
+}
+
+
+@keyframes openDoor {
+    0% {transform-origin: bottom center; transform: translate3d(13px,8px,2px);}
+    50% {transform-origin: bottom center; transform: translate3d(13px,8px,2px) rotateX(-120deg);}
+    100% {transform-origin: bottom center; transform: translate3d(13px,8px,2px) rotateX(0deg);}
+}
+
+@keyframes outCandy1 {
+    0% {transform: translate3d(35px,20px,-20px);}
+    30% {transform: translate3d(35px,20px,20px);}
+    100% {transform: translate3d(-350px,-230px,20px);}
+}
+
+@keyframes outCandy2 {
+    0% {transform: translate3d(36px,-110px,0px)}
+    100% {transform: translate3d(-150px,-330px,0px);}   
+}
+
+@keyframes outCandy3 {
+    0% {transform: translate3d(157px,-156px,0px)}
+    100% {transform: translate3d(-160px,-320px,0px);}   
+}
+
+@keyframes outCandy4 {
+    0% {transform: translate3d(226px,-80px,0px)}
+    100% {transform: translate3d(-180px,-350px,0px);}   
+}
+
+@keyframes outCandy5 {
+    0% {transform: translate3d(146px,70px,237px);}
+    30% {transform: translate3d(146px,-30px,237px);}
+    100% {transform: translate3d(-530px,-280px,20px);}
+}
+
+@keyframes outBox {
+    0% {
+        transform: translate3d(0px,-26.8px,15px);
+    }
+    50% {
+        transform: translate3d(0px,-94.8px,-110px) rotateX(90deg);
+    }
+    100% {
+        transform: translate3d(0px,-26.8px,15px);
+    }
+}
+
+@keyframes outgoast1 {
+    0% {transform: translate3d(106px,5px,70px);}
+    25% {transform: translate3d(86px,-15px,70px);}
+    50% {transform: translate3d(126px,-35px,70px);}
+    75% {transform: translate3d(86px,-55px,70px);}
+    100% {transform: translate3d(106px,-75px,70px);}
+}
+
+@keyframes outgoast2 {
+    0% {transform: translate3d(211px,30px,112px);}
+    25% {transform: translate3d(191px,10px,74px);}
+    50% {transform: translate3d(231px,-10px,74px);}
+    75% {transform: translate3d(191px,-30px,74px);}
+    100% {transform: translate3d(211px,-50px,74px);}
+}
+
+@keyframes tonight {
+    0% {background: linear-gradient(rgba(176, 137, 189, 0.726), rgba(216, 168, 79, 0.74));}
+    100% {background: rgba(0,20,41);}
+}
+
+@keyframes today {
+    0% {background: rgba(0,20,41);}
+    100% {background: linear-gradient(rgba(176, 137, 189, 0.726), rgba(216, 168, 79, 0.74));}
+}
+
+
+
